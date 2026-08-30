@@ -9,6 +9,7 @@ import {
   Modal,
   TouchableOpacity,
   FlatList,
+  SafeAreaView,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
@@ -57,21 +58,25 @@ export default function HomeScreen() {
 
   if (loading) {
     return (
-      <LinearGradient colors={theme.gradient} style={styles.centered}>
+      <LinearGradient colors={theme.gradient} style={styles.flexFill}>
         <StatusBar style="light" />
-        <ActivityIndicator size="large" color="#fff" />
+        <SafeAreaView style={styles.centered}>
+          <ActivityIndicator size="large" color="#fff" />
+        </SafeAreaView>
       </LinearGradient>
     );
   }
 
   if (error) {
     return (
-      <LinearGradient colors={theme.gradient} style={styles.centered}>
+      <LinearGradient colors={theme.gradient} style={styles.flexFill}>
         <StatusBar style="light" />
-        <Text style={styles.errorText}>{error}</Text>
-        <TouchableOpacity onPress={() => loadWeather(cityName)} style={styles.retryButton}>
-          <Text style={styles.retryText}>Tentar novamente</Text>
-        </TouchableOpacity>
+        <SafeAreaView style={styles.centered}>
+          <Text style={styles.errorText}>{error}</Text>
+          <TouchableOpacity onPress={() => loadWeather(cityName)} style={styles.retryButton}>
+            <Text style={styles.retryText}>Tentar novamente</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
       </LinearGradient>
     );
   }
@@ -79,24 +84,22 @@ export default function HomeScreen() {
   const { current, hourly } = data;
 
   return (
-    <LinearGradient colors={theme.gradient} style={{ flex: 1 }}>
+    <LinearGradient colors={theme.gradient} style={styles.flexFill}>
       <StatusBar style="light" />
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#fff" />
-        }
-      >
-        <WeatherHeader
-          cityName={current.city_name || cityName}
-          onPressCity={() => setCityPickerVisible(true)}
-          theme={theme}
-        />
-        <CurrentWeather current={current} theme={theme} />
-        <StatsRow current={current} theme={theme} />
-        <HourlyForecast hourly={hourly} theme={theme} />
-        <NextForecast forecast={current.forecast} theme={theme} />
-      </ScrollView>
+      <SafeAreaView style={styles.safeArea}>
+        <ScrollView
+          contentContainerStyle={styles.scrollContent}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#fff" />
+          }
+        >
+          <WeatherHeader cityName={current.city_name || cityName} onPressCity={() => setCityPickerVisible(true)} theme={theme} />
+          <CurrentWeather current={current} theme={theme} />
+          <StatsRow current={current} theme={theme} />
+          <HourlyForecast hourly={hourly} theme={theme} />
+          <NextForecast forecast={current.forecast} theme={theme} />
+        </ScrollView>
+      </SafeAreaView>
 
       <Modal
         visible={cityPickerVisible}
@@ -133,8 +136,15 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  flexFill: {
+    flex: 1,
+  },
+  safeArea: {
+    flex: 1,
+    backgroundColor: "transparent",
+  },
   scrollContent: {
-    paddingTop: 50,
+    paddingTop: 10,
     paddingBottom: 30,
   },
   centered: {
@@ -142,6 +152,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 24,
+    backgroundColor: "transparent",
   },
   errorText: {
     color: "#fff",

@@ -1,3 +1,4 @@
+
 export function iconForCondition(conditionSlug = "") {
   const map = {
     clear_day: { name: "weather-sunny", color: "#FFD65C" },

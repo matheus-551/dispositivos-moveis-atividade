@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { iconForWMOCode } from "../utils/weatherIcons";
 
@@ -22,16 +22,26 @@ export default function HourlyForecast({ hourly, theme }) {
         </Text>
       </View>
 
-      <View style={styles.hoursRow}>
-        {hourly.length === 0 ? (
-          <Text style={[styles.empty, { color: theme.textSecondary }]}>
-            Previsão horária indisponível
-          </Text>
-        ) : (
-          hourly.map((h, idx) => {
+      {hourly.length === 0 ? (
+        <Text style={[styles.empty, { color: theme.textSecondary }]}>
+          Previsão horária indisponível
+        </Text>
+      ) : (
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.hoursRow}
+        >
+          {hourly.map((h, idx) => {
             const icon = iconForWMOCode(h.weathercode);
             return (
-              <View key={idx} style={styles.hourItem}>
+              <View
+                key={idx}
+                style={[
+                  styles.hourItem,
+                  h.isCurrentHour && { backgroundColor: theme.cardBackgroundStrong },
+                ]}
+              >
                 <Text style={[styles.hourTemp, { color: theme.textPrimary }]}>
                   {h.temp}°C
                 </Text>
@@ -41,9 +51,9 @@ export default function HourlyForecast({ hourly, theme }) {
                 </Text>
               </View>
             );
-          })
-        )}
-      </View>
+          })}
+        </ScrollView>
+      )}
     </View>
   );
 }
@@ -53,12 +63,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginTop: 20,
     borderRadius: 20,
-    padding: 16,
+    paddingVertical: 16,
   },
   headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingHorizontal: 16,
   },
   title: {
     fontSize: 15,
@@ -68,13 +79,16 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   hoursRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    paddingHorizontal: 16,
     marginTop: 16,
+    gap: 20,
   },
   hourItem: {
     alignItems: "center",
     gap: 6,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    borderRadius: 14,
   },
   hourTemp: {
     fontSize: 13,
@@ -86,5 +100,7 @@ const styles = StyleSheet.create({
   empty: {
     fontSize: 13,
     fontStyle: "italic",
+    paddingHorizontal: 16,
+    marginTop: 12,
   },
 });

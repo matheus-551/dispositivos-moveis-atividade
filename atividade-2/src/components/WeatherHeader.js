@@ -12,11 +12,6 @@ export default function WeatherHeader({ cityName, onPressCity, theme }) {
         </Text>
         <Ionicons name="chevron-down" size={16} color={theme.textPrimary} />
       </TouchableOpacity>
-
-      <View style={styles.bellWrapper}>
-        <Ionicons name="notifications-outline" size={20} color={theme.textPrimary} />
-        <View style={styles.bellDot} />
-      </View>
     </View>
   );
 }
@@ -38,17 +33,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     marginHorizontal: 4,
-  },
-  bellWrapper: {
-    position: "relative",
-  },
-  bellDot: {
-    position: "absolute",
-    top: -2,
-    right: -2,
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: "#FF5A5A",
   },
 });

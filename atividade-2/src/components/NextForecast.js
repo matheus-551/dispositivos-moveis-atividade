@@ -4,7 +4,7 @@ import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { iconForCondition } from "../utils/weatherIcons";
 
 export default function NextForecast({ forecast, theme }) {
-  const nextDays = (forecast || []).slice(1, 4);
+  const nextDays = (forecast || []).slice(1);
 
   return (
     <View style={[styles.card, { backgroundColor: theme.cardBackground }]}>
