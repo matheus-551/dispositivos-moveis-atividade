@@ -1,0 +1,20 @@
+{
+  "contatos": [
+    {
+      "id": "1",
+      "userId": "teste",
+      "nome": "João Silva",
+      "telefone": "(11) 98765-4321",
+      "cidade": "São Paulo - SP",
+      "anotacao": "Amigo da faculdade"
+    },
+    {
+      "id": "2",
+      "userId": "teste",
+      "nome": "Maria Costa",
+      "telefone": "(21) 91234-5678",
+      "cidade": "Rio de Janeiro - RJ",
+      "anotacao": "Trabalha comigo"
+    }
+  ]
+}

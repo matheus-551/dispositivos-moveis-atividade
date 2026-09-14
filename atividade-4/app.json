@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "atividade-04",
+    "slug": "atividade-04",
+    "version": "1.0.0",
+    "plugins": [
+      "expo-status-bar"
+    ]
+  }
+}
