@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import {
   View,
+  Text,
+  TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
 
@@ -63,12 +65,32 @@ function AppStack() {
         },
       }}
     >
+
       <Stack.Screen
         name="Contacts"
         component={ContactsScreen}
-        options={{
+        options={({ navigation }) => ({
           title: 'Meus Contatos',
-        }}
+
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Profile')}
+              style={{
+                marginRight: 10,
+              }}
+            >
+              <Text
+                style={{
+                  color: '#fff',
+                  fontWeight: '700',
+                  fontSize: 16,
+                }}
+              >
+                Perfil
+              </Text>
+            </TouchableOpacity>
+          ),
+        })}
       />
 
       <Stack.Screen
@@ -96,6 +118,7 @@ function AppStack() {
           title: 'Perfil',
         }}
       />
+
     </Stack.Navigator>
   );
 }

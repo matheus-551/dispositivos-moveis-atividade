@@ -1,20 +1,14 @@
 {
   "contatos": [
+   
     {
-      "id": "1",
-      "userId": "teste",
-      "nome": "João Silva",
-      "telefone": "(11) 98765-4321",
-      "cidade": "São Paulo - SP",
-      "anotacao": "Amigo da faculdade"
-    },
-    {
-      "id": "2",
-      "userId": "teste",
-      "nome": "Maria Costa",
-      "telefone": "(21) 91234-5678",
-      "cidade": "Rio de Janeiro - RJ",
-      "anotacao": "Trabalha comigo"
+      "nome": "Flavio grfrfrfr",
+      "telefone": "99999999",
+      "cidade": "9999",
+      "anotacao": "sadsadsa",
+      "userId": "3CpOhwzLa7VdC5czshGuLD6vZV43",
+      "id": "W6Yye5o4hOA"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
