@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Galeria de Imagens",
+    "slug": "atividade-5",
+    "version": "1.0.0",
+    "scheme": "atividade5",
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
