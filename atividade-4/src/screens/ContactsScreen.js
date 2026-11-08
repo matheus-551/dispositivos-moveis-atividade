@@ -34,6 +34,7 @@ export default function ContactsScreen({ navigation }) {
 
       setContatos(data);
     } catch (error) {
+      console.log(error)
       Alert.alert(
         'Erro',
         'Não foi possível carregar os contatos.'
