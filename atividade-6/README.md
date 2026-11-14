@@ -1,6 +1,6 @@
 # Atividade 6 — Notificações push
 
-Aplicativo didático React Native com Expo e Expo Router. Três telas inspiradas no protótipo: cadastro, login e envio de notificações. Código em `src/app`, serviços REST e notificações separados em `src`, como nas atividades anteriores. Projetos `android/` e `ios/` são gerados por `expo run`/prebuild, sem copiar identificadores de outra atividade.
+Aplicativo didático React Native com Expo e Expo Router. Três telas inspiradas no protótipo: cadastro, login e envio de notificações. As rotas ficam em `src/app`, as telas em `src/screens` e os componentes compartilhados em `src/components`. O acesso ao Supabase fica em `src/api` e a integração de notificações em `src/services`. Projetos `android/` e `ios/` são gerados por `expo run`/prebuild, sem copiar identificadores de outra atividade.
 
 ## Configurar e executar
 
