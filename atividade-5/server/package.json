@@ -1,1 +1,14 @@
-{"name":"atividade-5-api","private":true,"type":"module","scripts":{"start":"node --env-file=.env index.js"},"dependencies":{"express":"^5.1.0","cors":"^2.8.5","cloudinary":"^2.7.0","firebase-admin":"^13.4.0"}}
+{
+  "name": "atividade-5-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "cloudinary": "^2.7.0",
+    "firebase-admin": "^13.4.0"
+  }
+}
