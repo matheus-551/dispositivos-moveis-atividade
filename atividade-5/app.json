@@ -5,7 +5,8 @@
     "version": "1.0.0",
     "scheme": "atividade5",
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-status-bar"
     ]
   }
 }
