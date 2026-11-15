@@ -14,6 +14,10 @@ module.exports = {
         : {}),
     },
     ios: { bundleIdentifier: 'br.edu.ifpe.atividade6', supportsTablet: true },
-    extra: { eas: { projectId: process.env.EXPO_PUBLIC_EAS_PROJECT_ID || undefined } },
+    extra: {
+      eas: {
+        projectId: process.env.EXPO_PUBLIC_EAS_PROJECT_ID || 'e174b676-de0e-4b5b-9c0a-46acaff82a97',
+      },
+    },
   },
 };
