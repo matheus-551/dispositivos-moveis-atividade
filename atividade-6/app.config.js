@@ -6,7 +6,7 @@ module.exports = {
     scheme: 'atividade6',
     orientation: 'portrait',
     userInterfaceStyle: 'light',
-    plugins: ['expo-router', ['expo-notifications', { color: '#1468ef' }]],
+    plugins: ['expo-router', ['expo-notifications', { color: '#1468ef' }], 'expo-status-bar'],
     android: {
       package: 'br.edu.ifpe.atividade6',
       ...(process.env.GOOGLE_SERVICES_JSON
