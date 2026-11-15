@@ -11,7 +11,7 @@ module.exports = {
       package: 'br.edu.ifpe.atividade6',
       ...(process.env.GOOGLE_SERVICES_JSON
         ? { googleServicesFile: process.env.GOOGLE_SERVICES_JSON }
-        : {}),
+        : {googleServicesFile: 'D:\IFPE\Periodo-4\dispositivos-moveis\google-services.json'}),
     },
     ios: { bundleIdentifier: 'br.edu.ifpe.atividade6', supportsTablet: true },
     extra: {
