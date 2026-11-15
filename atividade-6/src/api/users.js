@@ -30,13 +30,11 @@ async function request(path, options = {}) {
   }
 }
 
-// Aspas preservam os valores literais na sintaxe de filtros do PostgREST.
-const literal = (value) => `"${value.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
 export async function login(email, senha) {
   const query = new URLSearchParams({
     select: 'nome,email,token',
-    email: `eq.${literal(email)}`,
-    senha: `eq.${literal(senha)}`,
+    email: `eq.${email}`,
+    senha: `eq.${senha}`,
     limit: '1',
   });
   const users = await request(`?${query}`);
@@ -46,7 +44,7 @@ export async function login(email, senha) {
 export const register = (user) => request('', { method: 'POST', body: JSON.stringify(user) });
 export const listUsers = () => request('?select=nome,email,token&order=nome.asc');
 export const updateToken = (email, token) =>
-  request(`?${new URLSearchParams({ email: `eq.${literal(email)}` })}`, {
+  request(`?${new URLSearchParams({ email: `eq.${email}` })}`, {
     method: 'PATCH',
     body: JSON.stringify({ token }),
   });
